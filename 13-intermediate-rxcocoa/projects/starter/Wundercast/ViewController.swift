@@ -68,16 +68,23 @@ class ViewController: UIViewController {
             .catchAndReturn(.empty)
       }
     
-    let geoSearch = geoLocationButton.rx.tap.flatMapLatest { _ in
+    let mapInput = mapView.rx.regionDidChangedAnimated.skip(1).map { _ in
+        CLLocation(latitude: self.mapView.centerCoordinate.latitude, longitude: self.mapView.centerCoordinate.longitude)
+    }
+    
+    let geoInput = geoLocationButton.rx.tap.flatMapLatest { _ in
         self.locationManager.rx.getCurrentLocation()
-    }.flatMapLatest { location in
+    }
+    
+    let geoSearch = Observable.merge(mapInput, geoInput).flatMapLatest { location in
         ApiController.shared.currentWeather(at: location.coordinate).catchAndReturn(.empty)
     }
     
     let search = Observable.merge(textSearch, geoSearch).asDriver(onErrorJustReturn: .empty)
     
     let running = Observable.merge(searchInput.map { _ in true },
-                                   geoLocationButton.rx.tap.map {_ in true },
+                                   geoInput.map { _ in true },
+                                   mapInput.map { _ in true},
                                    search.map { _ in false }.asObservable()
     )
     .startWith(true)
@@ -113,8 +120,6 @@ class ViewController: UIViewController {
     mapView.rx.setDelegate(self).disposed(by: bag)
     
     search.map { $0.overlay() }.drive(mapView.rx.overlay).disposed(by: bag)
-    
-    print("jsu for test purpose")
   }
 
   override func viewDidAppear(_ animated: Bool) {
