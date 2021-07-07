@@ -113,6 +113,8 @@ class ViewController: UIViewController {
     mapView.rx.setDelegate(self).disposed(by: bag)
     
     search.map { $0.overlay() }.drive(mapView.rx.overlay).disposed(by: bag)
+    
+    print("jsu for test purpose")
   }
 
   override func viewDidAppear(_ animated: Bool) {
