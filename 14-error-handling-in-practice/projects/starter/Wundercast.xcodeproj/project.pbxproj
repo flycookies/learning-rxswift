@@ -147,7 +147,6 @@
 				58228F5CFBF491A8F76BE0CF /* Pods-Wundercast.debug.xcconfig */,
 				D3C6730CBAFA3E22CB7C633C /* Pods-Wundercast.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -193,6 +192,7 @@
 				TargetAttributes = {
 					CB4D693C1DE9A7D100DC0488 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZJJN4M5H9R;
 						LastSwiftMigration = 1150;
 						ProvisioningStyle = Automatic;
 					};
@@ -434,11 +434,11 @@
 			baseConfigurationReference = 58228F5CFBF491A8F76BE0CF /* Pods-Wundercast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZJJN4M5H9R;
 				INFOPLIST_FILE = Wundercast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Wundercast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passaction.Wundercast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -449,11 +449,11 @@
 			baseConfigurationReference = D3C6730CBAFA3E22CB7C633C /* Pods-Wundercast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZJJN4M5H9R;
 				INFOPLIST_FILE = Wundercast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Wundercast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passaction.Wundercast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
